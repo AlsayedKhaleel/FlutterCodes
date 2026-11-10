@@ -1,0 +1,1 @@
+const String ASSETS = "assets/images";

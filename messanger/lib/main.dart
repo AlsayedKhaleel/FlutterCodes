@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:messanger/chat_model.dart';
 import 'package:messanger/fake_data.dart';
@@ -12,7 +13,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: MessangerHomePage());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MessangerHomePage()
+      );
   }
 }
 
@@ -26,7 +30,7 @@ class MessangerHomePage extends StatelessWidget {
         .toList();
 
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.white,
       appBar: makeAppBar(),
       body: SingleChildScrollView(
         child: Column(
@@ -72,6 +76,32 @@ class MessangerHomePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: SizedBox(
+        width: double.infinity,
+        height: 75,
+
+        child: Row(
+          mainAxisAlignment: .spaceEvenly,
+          children: [
+            makeBottomNavBarIcons(
+              icon: CupertinoIcons.chat_bubble_2_fill,
+              iconLabel: "Chats",
+            ),
+            makeBottomNavBarIcons(
+              icon: Icons.video_call,
+              iconLabel: "Calls",
+            ),
+            makeBottomNavBarIcons(
+              icon: Icons.people,
+              iconLabel: "People",
+            ),
+            makeBottomNavBarIcons(
+              icon: Icons.store_outlined,
+              iconLabel: "Stories",
+            ),
+          ]
+        ),
+      ),
     );
   }
 }
@@ -80,6 +110,7 @@ class MessangerHomePage extends StatelessWidget {
 AppBar makeAppBar() {
   return AppBar(
     backgroundColor: Colors.white,
+    scrolledUnderElevation: 0.0,
     leadingWidth: 80,
     leading: Padding(
       padding: const EdgeInsets.all(10.0),
@@ -156,7 +187,7 @@ Widget makeHChat(ChatModel chat) {
       ),
     );
   } else {
-    return Container(width: 0, height: 0);
+    return SizedBox(width: 0, height: 0);
   }
 }
 
@@ -230,5 +261,19 @@ Widget makeVChat(ChatModel chat) {
         ),
       ],
     ),
+  );
+}
+
+// build the clickable icons at the bottom navigation bar.
+Widget makeBottomNavBarIcons({
+  required IconData icon,
+  required String iconLabel,
+}) {
+  return Column(
+    mainAxisAlignment: .center,
+    children: [
+      Icon(icon, color: Colors.grey,),
+      Text(iconLabel, style: TextStyle(fontSize: 15, fontWeight: .bold, color: Colors.grey)),
+    ],
   );
 }

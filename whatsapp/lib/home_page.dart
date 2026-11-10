@@ -96,10 +96,11 @@ Widget makeChat(Chat chat) {
 
 Widget makeChatContent(Chat chat) {
   return
-      if (chat.type == MessagesTypes.gif.toString().split('.').last)
+      if (chat.type == MessagesTypes.gif.toString().split('.').last) {
         Row(
           children: [Icon(Icons.gif), Text("GIF")])
-      else if ()
+      
+      } else if ()
 }
 
 // makes the 1st two customized chats.

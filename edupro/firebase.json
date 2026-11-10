@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"dart":{"lib/firebase_options.dart":{"projectId":"nurse-ed","configurations":{"android":"1:1020333780189:android:da59774297b3528e277f34","ios":"1:1020333780189:ios:193fcac1e1a72ea2277f34"}}},"android":{"default":{"projectId":"nurse-ed","appId":"1:1020333780189:android:da59774297b3528e277f34","fileOutput":"android/app/google-services.json"}}}}}
